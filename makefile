@@ -3,14 +3,17 @@ CXX = g++
 CXXFLAGS = -Wall -Wextra -std=c++17 -Iinclude
 
 # Directories
-SRC_DIR = src
+SRC_DIR = Core
 OBJ_DIR = build
 BIN_DIR = bin
 BIN = $(BIN_DIR)/main
 
 # Find all .cpp files (from src/ or root), supports single or multiple files
-SRCS = $(wildcard $(SRC_DIR)/*.cpp) $(wildcard *.cpp)
-OBJS = $(patsubst %.cpp, $(OBJ_DIR)/%.o, $(notdir $(SRCS)))
+SRCS = $(wildcard $(SRC_DIR)/**/*.cpp) $(wildcard *.cpp)
+
+# Map .cpp files to .o files in the build directory, maintaining directory structure
+OBJS = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
+OBJS = $(OBJS:%.cpp=$(OBJ_DIR)/%.o)
 
 # Default target
 all: $(BIN)
@@ -19,8 +22,8 @@ all: $(BIN)
 $(BIN): $(OBJS) | $(BIN_DIR)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $@
 
-# Compile .cpp files into .o object files
-$(OBJ_DIR)/%.o: %.cpp | $(OBJ_DIR)
+# Compile .cpp files into .o object files in the build/ directory
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Create necessary directories
