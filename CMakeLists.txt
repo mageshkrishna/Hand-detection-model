@@ -11,11 +11,11 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
 # Include directories for header files
-include_directories(include Core)
+include_directories(include src)
 
 # Find all source files (.cpp) recursively
 file(GLOB_RECURSE SOURCES
-    "Core/*.cpp"
+    "src/*.cpp"
     "main.cpp"
 )
 
