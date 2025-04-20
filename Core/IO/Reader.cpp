@@ -1,5 +1,5 @@
-#include <Reader.h>
-#include <../Image.h>
+#include "Reader.h"
+#include "../Image.h"
 #include <iostream>
 
 void Reader::print(){

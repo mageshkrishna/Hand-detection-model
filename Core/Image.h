@@ -1,3 +1,6 @@
+#ifndef IMAGE_H
+#define IMAGE_H
+
 class Image{
     private:
         struct pixel{
@@ -12,7 +15,8 @@ class Image{
         pixel** data;
     
     public:
-        Image(int , int);
+        Image(int row , int col);
         int getRow();
 };
 
+#endif
