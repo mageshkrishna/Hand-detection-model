@@ -31,6 +31,9 @@ endif()
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/build)
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
+# Copy the assets folder into the build directory
+file(COPY ${CMAKE_SOURCE_DIR}/assets DESTINATION ${CMAKE_BINARY_DIR})
+
 # Run target after build
 add_custom_target(run
     COMMAND ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/main

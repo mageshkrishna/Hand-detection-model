@@ -11,7 +11,7 @@ int main() {
     Image myImage;
     
     // Load an image from file
-    if (myImage.loadFromBMP("/home/mageshkrishna/code-files/Hand Detection model from scrath using C++/Hand-detection-model/sample.bmp")) {
+    if (myImage.loadFromBMP("assets/sample.bmp")) {
         std::cout << "Successfully loaded image with dimensions: " 
                   << myImage.getWidth() << "x" << myImage.getHeight() << std::endl;
         
